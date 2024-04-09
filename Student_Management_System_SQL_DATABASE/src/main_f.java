@@ -30,7 +30,7 @@ public class main_f extends javax.swing.JFrame {
     PreparedStatement pst = null;
     ResultSet rs = null;
     int q,i,id,deleteitem;
-    
+    String ordr=" order by created_at asc ";
     
     public main_f() {
         initComponents();
@@ -51,7 +51,7 @@ public class main_f extends javax.swing.JFrame {
         {
             Class.forName("com.mysql.jdbc.Driver");
             sqlConn = DriverManager.getConnection(dataConn,username,password);
-            pst = sqlConn.prepareStatement("select * from student_database");
+            pst = sqlConn.prepareStatement("select * from student_database" + ordr);
             
             rs = pst.executeQuery();
             ResultSetMetaData stData = rs.getMetaData();
@@ -85,7 +85,7 @@ public class main_f extends javax.swing.JFrame {
         // Establish a connection to the database
         Connection sqlConn = DriverManager.getConnection(dataConn, username, password);
         // Prepare a statement to execute the SQL query
-        PreparedStatement pst = sqlConn.prepareStatement("SELECT * FROM student_database");
+        PreparedStatement pst = sqlConn.prepareStatement("SELECT * FROM student_database"+ordr);
         
         // Execute the query and get the result set
         ResultSet rs = pst.executeQuery();
@@ -239,6 +239,7 @@ public class main_f extends javax.swing.JFrame {
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 450, 330));
 
+        jTable1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -273,6 +274,11 @@ public class main_f extends javax.swing.JFrame {
         });
 
         del_btn.setText("Delete");
+        del_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                del_btnActionPerformed(evt);
+            }
+        });
 
         sort_btn.setText("Sort");
         sort_btn.addActionListener(new java.awt.event.ActionListener() {
@@ -335,7 +341,7 @@ public class main_f extends javax.swing.JFrame {
                 .addContainerGap(36, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jLayeredPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 230, 100, 290));
+        jPanel1.add(jLayeredPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 170, 100, 290));
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -468,6 +474,37 @@ public class main_f extends javax.swing.JFrame {
              
              
     }//GEN-LAST:event_jTable1MouseClicked
+
+    private void del_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_del_btnActionPerformed
+        // TODO add your handling code here:
+        DefaultTableModel RecordTable = (DefaultTableModel)jTable1.getModel();
+        int SelectedRows = jTable1.getSelectedRow();
+        try{
+            id = Integer.parseInt(RecordTable.getValueAt(SelectedRows,1).toString());
+            
+            deleteitem = JOptionPane.showConfirmDialog(null,"Confirm if you want to delete item","warning",JOptionPane.YES_NO_OPTION) ;
+            
+            if(deleteitem == JOptionPane.YES_OPTION){
+                Class.forName("com.mysql.jdbc.Driver");
+                sqlConn = DriverManager.getConnection(dataConn,username,password);
+                pst = sqlConn.prepareStatement("delete from student_database where id = ?");
+                
+                pst.setInt(1, id);
+                pst.executeUpdate();
+                JOptionPane.showMessageDialog(this,"Record Updated");
+                upDateDB();
+                
+                name_text_field.setText("");                
+                id_text_field.setText("");
+                address_text_field.setText("");
+
+            }
+               
+            
+        }catch(Exception e){
+            System.out.println(e);
+        }
+    }//GEN-LAST:event_del_btnActionPerformed
 
     /**
      * @param args the command line arguments
