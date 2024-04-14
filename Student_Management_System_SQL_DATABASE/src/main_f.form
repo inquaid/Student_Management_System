@@ -382,15 +382,15 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
-                      <Component id="bottom" min="-2" pref="50" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="previous" min="-2" pref="50" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="count_text_field" min="-2" pref="82" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="next" min="-2" pref="51" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="top" min="-2" pref="50" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="next" min="-2" pref="51" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                      <Component id="count_text_field" min="-2" pref="82" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="previous" min="-2" pref="50" max="-2" attributes="0"/>
+                      <EmptySpace pref="7" max="32767" attributes="0"/>
+                      <Component id="bottom" min="-2" pref="50" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -400,11 +400,11 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="bottom" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="previous" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="next" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="top" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="count_text_field" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="bottom" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="previous" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="16" max="32767" attributes="0"/>
                   </Group>
@@ -414,7 +414,7 @@
           <SubComponents>
             <Component class="javax.swing.JButton" name="bottom">
               <Properties>
-                <Property name="text" type="java.lang.String" value="&lt;&lt;"/>
+                <Property name="text" type="java.lang.String" value="&gt;&gt;"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bottomActionPerformed"/>
@@ -422,7 +422,7 @@
             </Component>
             <Component class="javax.swing.JButton" name="previous">
               <Properties>
-                <Property name="text" type="java.lang.String" value="&lt;"/>
+                <Property name="text" type="java.lang.String" value="&gt;"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="previousActionPerformed"/>
@@ -430,7 +430,7 @@
             </Component>
             <Component class="javax.swing.JButton" name="next">
               <Properties>
-                <Property name="text" type="java.lang.String" value="&gt;"/>
+                <Property name="text" type="java.lang.String" value="&lt;"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nextActionPerformed"/>
@@ -438,7 +438,7 @@
             </Component>
             <Component class="javax.swing.JButton" name="top">
               <Properties>
-                <Property name="text" type="java.lang.String" value="&gt;&gt;"/>
+                <Property name="text" type="java.lang.String" value="&lt;&lt;"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="topActionPerformed"/>
