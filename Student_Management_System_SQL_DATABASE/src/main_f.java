@@ -50,7 +50,7 @@ public class main_f extends javax.swing.JFrame {
     public void upDateDB(){
         try
         {
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             sqlConn = DriverManager.getConnection(dataConn,username,password);
             pst = sqlConn.prepareStatement("select * from student_database" + ordr);
             
@@ -81,37 +81,25 @@ public class main_f extends javax.swing.JFrame {
     
     public void showDB() {
     try {
-        // Load the JDBC driver
-        Class.forName("com.mysql.jdbc.Driver");
-        // Establish a connection to the database
+        Class.forName("com.mysql.cj.jdbc.Driver");
         Connection sqlConn = DriverManager.getConnection(dataConn, username, password);
-        // Prepare a statement to execute the SQL query
         PreparedStatement pst = sqlConn.prepareStatement("SELECT * FROM student_database"+ordr);
         
-        // Execute the query and get the result set
         ResultSet rs = pst.executeQuery();
-        // Get metadata about the result set
         ResultSetMetaData stData = rs.getMetaData();
         
-        // Determine the number of columns in the result set
         int q = stData.getColumnCount();
         
-        // Get the table model from your JTable and clear existing rows
         DefaultTableModel RecordTable = (DefaultTableModel) jTable1.getModel();
         RecordTable.setRowCount(0);
         
-        // Iterate over each row in the result set
         while (rs.next()) {
-            // Create a vector to hold the column data for the current row
             Vector columnData = new Vector();
             for (int i = 1; i <= q; i++) {
-                // Assuming the first column is 'Name', second is 'id', and third is 'address'
-                // It's more efficient to fetch data using column index instead of column name
-                columnData.add(rs.getString("Name")); // Name
-                columnData.add(rs.getString("id")); // id
-                columnData.add(rs.getString("address")); // address
+                columnData.add(rs.getString("Name")); 
+                columnData.add(rs.getString("id")); 
+                columnData.add(rs.getString("address")); 
             }
-            // Add the row data to the table model
             RecordTable.addRow(columnData);
         }
     } catch (Exception e) {
@@ -466,7 +454,7 @@ public class main_f extends javax.swing.JFrame {
         // TODO add your handling code here:
          try
         {
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             sqlConn = DriverManager.getConnection(dataConn,username,password);
             pst = sqlConn.prepareStatement("update student_database set Name =?, address=? where id=?");
  
@@ -509,7 +497,7 @@ public class main_f extends javax.swing.JFrame {
         // TODO add your handling code here:
          try
         {
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             sqlConn = DriverManager.getConnection(dataConn,username,password);
             pst = sqlConn.prepareStatement("insert into student_database(Name,id,address)value(?,?,?)");
         
@@ -559,7 +547,7 @@ public class main_f extends javax.swing.JFrame {
             deleteitem = JOptionPane.showConfirmDialog(null,"Confirm if you want to delete item","warning",JOptionPane.YES_NO_OPTION) ;
             
             if(deleteitem == JOptionPane.YES_OPTION){
-                Class.forName("com.mysql.jdbc.Driver");
+                Class.forName("com.mysql.cj.jdbc.Driver");
                 sqlConn = DriverManager.getConnection(dataConn,username,password);
                 pst = sqlConn.prepareStatement("delete from student_database where id = ?");
                 
