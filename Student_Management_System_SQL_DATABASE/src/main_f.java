@@ -8,6 +8,7 @@
  * @author User
  */
 
+import java.awt.Color;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.sql.*;
@@ -146,10 +147,16 @@ public class main_f extends javax.swing.JFrame {
         add_btn = new javax.swing.JButton();
         update_btn = new javax.swing.JButton();
         del_btn = new javax.swing.JButton();
-        sort_btn = new javax.swing.JButton();
         exit_btn = new javax.swing.JButton();
         reset_btn = new javax.swing.JButton();
+        sort_in_style = new javax.swing.JComboBox<>();
         jPanel4 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
+        bottom = new javax.swing.JButton();
+        previous = new javax.swing.JButton();
+        next = new javax.swing.JButton();
+        top = new javax.swing.JButton();
+        count_text_field = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Student_Management_System");
@@ -234,10 +241,10 @@ public class main_f extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(address_label)
                     .addComponent(address_text_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(191, Short.MAX_VALUE))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 450, 330));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 450, 180));
 
         jTable1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -255,7 +262,7 @@ public class main_f extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 110, 430, 440));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 150, 430, 310));
 
         jLayeredPane1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
@@ -280,13 +287,6 @@ public class main_f extends javax.swing.JFrame {
             }
         });
 
-        sort_btn.setText("Sort");
-        sort_btn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sort_btnActionPerformed(evt);
-            }
-        });
-
         exit_btn.setText("Exit");
         exit_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -301,12 +301,19 @@ public class main_f extends javax.swing.JFrame {
             }
         });
 
+        sort_in_style.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default", "Name", "Id" }));
+        sort_in_style.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sort_in_styleActionPerformed(evt);
+            }
+        });
+
         jLayeredPane1.setLayer(add_btn, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(update_btn, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(del_btn, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(sort_btn, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(exit_btn, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(reset_btn, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(sort_in_style, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
         jLayeredPane1.setLayout(jLayeredPane1Layout);
@@ -317,10 +324,10 @@ public class main_f extends javax.swing.JFrame {
                 .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(add_btn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(del_btn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(sort_btn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(update_btn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(exit_btn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(reset_btn, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE))
+                    .addComponent(reset_btn, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE)
+                    .addComponent(sort_in_style, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jLayeredPane1Layout.setVerticalGroup(
@@ -333,28 +340,95 @@ public class main_f extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(del_btn)
                 .addGap(18, 18, 18)
-                .addComponent(sort_btn)
-                .addGap(18, 18, 18)
+                .addComponent(sort_in_style, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19)
                 .addComponent(reset_btn)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(exit_btn)
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jLayeredPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 170, 100, 290));
+        jPanel1.add(jLayeredPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 170, 100, 310));
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 110, Short.MAX_VALUE)
+            .addGap(0, 270, Short.MAX_VALUE)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 50, Short.MAX_VALUE)
+            .addGap(0, 70, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 10, 110, 50));
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 450, 270, 70));
+
+        bottom.setText("<<");
+        bottom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bottomActionPerformed(evt);
+            }
+        });
+
+        previous.setText("<");
+        previous.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                previousActionPerformed(evt);
+            }
+        });
+
+        next.setText(">");
+        next.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nextActionPerformed(evt);
+            }
+        });
+
+        top.setText(">>");
+        top.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                topActionPerformed(evt);
+            }
+        });
+
+        count_text_field.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        count_text_field.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                count_text_fieldActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(65, 65, 65)
+                .addComponent(bottom, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(previous, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(count_text_field, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(next, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(top, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(46, 46, 46))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bottom)
+                    .addComponent(previous)
+                    .addComponent(next)
+                    .addComponent(top)
+                    .addComponent(count_text_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(16, Short.MAX_VALUE))
+        );
+
+        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, 430, 60));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -369,7 +443,8 @@ public class main_f extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 571, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 565, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -394,7 +469,7 @@ public class main_f extends javax.swing.JFrame {
             Class.forName("com.mysql.jdbc.Driver");
             sqlConn = DriverManager.getConnection(dataConn,username,password);
             pst = sqlConn.prepareStatement("update student_database set Name =?, address=? where id=?");
-        
+ 
             pst.setString(1,name_text_field.getText());
             pst.setString(3,id_text_field.getText());
             pst.setString(2,address_text_field.getText());
@@ -411,10 +486,6 @@ public class main_f extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_update_btnActionPerformed
-
-    private void sort_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sort_btnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_sort_btnActionPerformed
     private JFrame frame;
     private void exit_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exit_btnActionPerformed
         // TODO add your handling code here:
@@ -431,6 +502,7 @@ public class main_f extends javax.swing.JFrame {
         name_text_field.setText("");
         id_text_field.setText("");
         address_text_field.setText("");
+        count_text_field.setText("");
     }//GEN-LAST:event_reset_btnActionPerformed
 
     private void add_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_btnActionPerformed
@@ -469,7 +541,9 @@ public class main_f extends javax.swing.JFrame {
         name_text_field.setText(RecordTable.getValueAt(SelectedRows, 0).toString());
         id_text_field.setText(RecordTable.getValueAt(SelectedRows, 1).toString());
         address_text_field.setText(RecordTable.getValueAt(SelectedRows, 2).toString());
-
+        
+      
+        count_text_field.setText(String.valueOf(SelectedRows + 1) + " / " + RecordTable.getRowCount());
              
              
              
@@ -497,6 +571,7 @@ public class main_f extends javax.swing.JFrame {
                 name_text_field.setText("");                
                 id_text_field.setText("");
                 address_text_field.setText("");
+                count_text_field.setText("");
 
             }
                
@@ -505,6 +580,127 @@ public class main_f extends javax.swing.JFrame {
             System.out.println(e);
         }
     }//GEN-LAST:event_del_btnActionPerformed
+
+    private void bottomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bottomActionPerformed
+        // TODO add your handling code here:
+        if(row_is_selected == false){
+            model = (DefaultTableModel) jTable1.getModel();
+            row_is_selected = true;
+        }
+        index=model.getRowCount()-1;
+        if(model.getRowCount() > 0){
+            
+            jTable1.setRowSelectionInterval(index, index);
+            jTable1.setSelectionBackground(Color.BLACK);
+        int SelectedRows = index;
+        name_text_field.setText(model.getValueAt(SelectedRows, 0).toString());
+        id_text_field.setText(model.getValueAt(SelectedRows, 1).toString());
+        address_text_field.setText(model.getValueAt(SelectedRows, 2).toString());
+         count_text_field.setText(String.valueOf(SelectedRows + 1) + " / " + model.getRowCount());
+          
+        }
+    }//GEN-LAST:event_bottomActionPerformed
+
+    boolean row_is_selected = false;
+    int index;
+    DefaultTableModel model;
+    
+    private void previousActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_previousActionPerformed
+        // TODO add your handling code here:
+        
+        if(row_is_selected == false){
+            model = (DefaultTableModel) jTable1.getModel();
+            row_is_selected = true;
+        }
+        
+        index = jTable1.getSelectedRow();
+        
+        if(index< model.getRowCount()-1)
+        {
+//        model.moveRow(index, index, index-1);
+        jTable1.setRowSelectionInterval(index + 1, index + 1);
+        jTable1.setSelectionBackground(Color.BLACK);
+        
+        int SelectedRows = index+1;
+        name_text_field.setText(model.getValueAt(SelectedRows, 0).toString());
+        id_text_field.setText(model.getValueAt(SelectedRows, 1).toString());
+        address_text_field.setText(model.getValueAt(SelectedRows, 2).toString());
+         count_text_field.setText(String.valueOf(SelectedRows + 1) + " / " + model.getRowCount());
+         
+           
+        
+        }
+        
+    }//GEN-LAST:event_previousActionPerformed
+
+    private void count_text_fieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_count_text_fieldActionPerformed
+        // TODO add your handling code here:
+            
+    }//GEN-LAST:event_count_text_fieldActionPerformed
+
+    private void sort_in_styleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sort_in_styleActionPerformed
+        // TODO add your handling code here:
+        if(sort_in_style.getSelectedItem().toString() == "Default"){
+            ordr=" order by created_at asc ";
+        }
+        else if(sort_in_style.getSelectedItem().toString() == "Name"){
+             ordr=" order by Name asc ";
+        }
+        else {
+             ordr=" order by Id asc ";
+        }
+        upDateDB();
+        
+    }//GEN-LAST:event_sort_in_styleActionPerformed
+
+    
+    private void nextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextActionPerformed
+        // TODO add your handling code here:
+        if(row_is_selected == false){
+            model = (DefaultTableModel) jTable1.getModel();
+            row_is_selected = true;
+        }
+        
+        index = jTable1.getSelectedRow();
+        
+        if(index>0)
+        {
+//        model.moveRow(index, index, index-1);
+        jTable1.setRowSelectionInterval(index - 1, index - 1);
+        jTable1.setSelectionBackground(Color.BLACK);
+        int SelectedRows = index-1;
+        name_text_field.setText(model.getValueAt(SelectedRows, 0).toString());
+        id_text_field.setText(model.getValueAt(SelectedRows, 1).toString());
+        address_text_field.setText(model.getValueAt(SelectedRows, 2).toString());
+         count_text_field.setText(String.valueOf(SelectedRows + 1) + " / " + model.getRowCount());
+          
+        }
+        
+        
+        
+        
+    }//GEN-LAST:event_nextActionPerformed
+
+    private void topActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_topActionPerformed
+        // TODO add your handling code here:
+        
+        if(row_is_selected == false){
+            model = (DefaultTableModel) jTable1.getModel();
+            row_is_selected = true;
+        }
+        index=0;
+        if(model.getRowCount() > 0){
+            
+            jTable1.setRowSelectionInterval(index, index);
+            jTable1.setSelectionBackground(Color.BLACK);
+        int SelectedRows = index;
+        name_text_field.setText(model.getValueAt(SelectedRows, 0).toString());
+        id_text_field.setText(model.getValueAt(SelectedRows, 1).toString());
+        address_text_field.setText(model.getValueAt(SelectedRows, 2).toString());
+         count_text_field.setText(String.valueOf(SelectedRows + 1) + " / " + model.getRowCount());
+          
+        }
+    }//GEN-LAST:event_topActionPerformed
 
     /**
      * @param args the command line arguments
@@ -546,6 +742,8 @@ public class main_f extends javax.swing.JFrame {
     private javax.swing.JButton add_btn;
     private javax.swing.JLabel address_label;
     private javax.swing.JTextField address_text_field;
+    private javax.swing.JButton bottom;
+    private javax.swing.JTextField count_text_field;
     private javax.swing.JButton del_btn;
     private javax.swing.JButton exit_btn;
     private javax.swing.JLabel id_label;
@@ -556,12 +754,16 @@ public class main_f extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JLabel name_label;
     private javax.swing.JTextField name_text_field;
+    private javax.swing.JButton next;
+    private javax.swing.JButton previous;
     private javax.swing.JButton reset_btn;
-    private javax.swing.JButton sort_btn;
+    private javax.swing.JComboBox<String> sort_in_style;
+    private javax.swing.JButton top;
     private javax.swing.JButton update_btn;
     // End of variables declaration//GEN-END:variables
 }
