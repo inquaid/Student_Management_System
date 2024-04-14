@@ -248,6 +248,11 @@ public class main_f extends javax.swing.JFrame {
                 jTable1MouseClicked(evt);
             }
         });
+        jTable1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTable1KeyPressed(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 150, 430, 310));
@@ -491,6 +496,8 @@ public class main_f extends javax.swing.JFrame {
         id_text_field.setText("");
         address_text_field.setText("");
         count_text_field.setText("");
+       jTable1.clearSelection();
+        
     }//GEN-LAST:event_reset_btnActionPerformed
 
     private void add_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_btnActionPerformed
@@ -689,6 +696,10 @@ public class main_f extends javax.swing.JFrame {
           
         }
     }//GEN-LAST:event_topActionPerformed
+
+    private void jTable1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTable1KeyPressed
+        // TODO add your handling code here;
+    }//GEN-LAST:event_jTable1KeyPressed
 
     /**
      * @param args the command line arguments
