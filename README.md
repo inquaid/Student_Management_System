@@ -68,7 +68,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## Contact
 
-Your Name - [@Azmain Inquaid haque](https://www.facebook.com/azmaininquaid007/)
+[@Azmain Inquaid haque](https://www.facebook.com/azmaininquaid007/)
 
 Project Link: [https://github.com/inquaid/Student_Management_System](https://github.com/inquaid/Student_Management_System)
 
