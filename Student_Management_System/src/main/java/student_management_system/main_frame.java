@@ -58,6 +58,11 @@ public class main_frame extends javax.swing.JFrame {
         jProgressBar2 = new javax.swing.JProgressBar();
         jFormattedTextField1 = new javax.swing.JFormattedTextField();
         jProgressBar3 = new javax.swing.JProgressBar();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
+        jToggleButton2 = new javax.swing.JToggleButton();
 
         jMenu1.setText("jMenu1");
 
@@ -270,6 +275,26 @@ public class main_frame extends javax.swing.JFrame {
         });
         getContentPane().add(jProgressBar3, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 634, -1, 40));
 
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane3.setViewportView(jTextArea1);
+
+        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 380, 140, 30));
+
+        jTextArea2.setColumns(20);
+        jTextArea2.setRows(5);
+        jScrollPane4.setViewportView(jTextArea2);
+
+        getContentPane().add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 500, 240, 50));
+
+        jToggleButton2.setText("jToggleButton2");
+        jToggleButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jToggleButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 410, -1, -1));
+
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
@@ -309,6 +334,11 @@ public class main_frame extends javax.swing.JFrame {
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_jTable1MouseClicked
+
+    private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jToggleButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -372,11 +402,16 @@ public class main_frame extends javax.swing.JFrame {
     private javax.swing.JScrollBar jScrollBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JSlider jSlider1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JToggleButton jToggleButton2;
     // End of variables declaration//GEN-END:variables
 }

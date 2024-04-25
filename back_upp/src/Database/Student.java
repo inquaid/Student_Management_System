@@ -1,20 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Database;
+
 import java.io.*;
 import java.util.Objects;
-/**
- *
- * @author CSE
- */
-public class Student extends Item implements Serializable,Comparable{
+
+public class Student extends Item implements Serializable, Comparable {
+
     private String artist;
     private Double numberOfTracks;
 
-   public Student(String theTitle, String theArtist, int cgpa_cnt, double tracks)  {
+    public Student(String theTitle, String theArtist, int cgpa_cnt, double tracks) {
         super(theTitle, cgpa_cnt);
         artist = theArtist;
         numberOfTracks = tracks;
@@ -40,26 +34,26 @@ public class Student extends Item implements Serializable,Comparable{
         if (!Objects.equals(this.artist, other.artist)) {
             return false;
         }
-        if (!this.title.equals(other.title)) {
+        if (!this.name.equals(other.name)) {
             return false;
         }
         return true;
     }
 
-   public String getArtist() {
+    public String getArtist() {
         return artist;
     }
 
-   public Double getNumberOfTracks() {
+    public Double getNumberOfTracks() {
         return numberOfTracks;
     }
-   
-   @Override
+
+    @Override
     public String toString() {
         return new StringBuffer("")
-        .append(this.title)
-        .append(this.playingTime)
-        .append(this.artist)
-        .append(this.numberOfTracks).toString();
+                .append(this.name)
+                .append(this.ID)
+                .append(this.artist)
+                .append(this.numberOfTracks).toString();
     }
 }

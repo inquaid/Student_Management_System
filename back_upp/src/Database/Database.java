@@ -3,6 +3,7 @@ package Database;
 import java.util.*;
 
 public class Database {
+
     private ArrayList items;
 
     public Database() {
@@ -15,7 +16,7 @@ public class Database {
 
     public String toString() {
         String result = "";
-        for (Iterator iter = items.iterator(); iter.hasNext(); ) {
+        for (Iterator iter = items.iterator(); iter.hasNext();) {
             Item item = (Item) iter.next();
             result += item.toString();
         }

@@ -1,56 +1,57 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Database;
+
 import java.util.*;
 import java.io.*;
-/**
- *
- * @author CSE
- */
+
 public class Item_List implements Serializable {
-   ArrayList<Item> iList;
+
+    ArrayList<Item> iList;
 
     public Item_List() {
         this.iList = new ArrayList();
     }
-    public void addItem(Item i){
-            iList.add(i);
+
+    public void addItem(Item i) {
+        iList.add(i);
     }
-    public void deleteItem(int index){
-     iList.remove(index);
+
+    public void deleteItem(int index) {
+        iList.remove(index);
     }
-    public void updateItem(int index, Item i){
-     iList.set(index,i);
+
+    public void updateItem(int index, Item i) {
+        iList.set(index, i);
     }
-    
-    public Item get(int index){
-     return iList.get(index);
+
+    public Item get(int index) {
+        return iList.get(index);
     }
-    public boolean Contains(Item i){
-     return iList.contains(i);
+
+    public boolean Contains(Item i) {
+        return iList.contains(i);
     }
-    public int num_Items(){
-     return iList.size();
+
+    public int num_Items() {
+        return iList.size();
     }
-    
-    public void Sort(){
+
+    public void Sort() {
         Collections.sort(iList);
     }
+
     @Override
     public String toString() {
         StringBuffer sb = new StringBuffer("");
         for (Item i : iList) {
             sb.append(i);
         }
-      return sb.toString();
+        return sb.toString();
     }
 
     public ArrayList<Item> getiList() {
         return iList;
     }
+
     public boolean isEmpty() {
         return iList.isEmpty();
     }

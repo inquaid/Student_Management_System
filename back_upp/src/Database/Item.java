@@ -1,55 +1,43 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Database;
 
-/**
- *
- * @author CSE
- */
 import java.io.*;
 import java.util.Objects;
 
-/**
- *
- * @author CSE
- */
-public class Item implements Serializable,Comparable {
-    protected String title;
-    protected int playingTime;
+public class Item implements Serializable, Comparable {
 
-   public Item(String theTitle, int time) {
-        title = theTitle;
-        playingTime = time;
+    protected String name;
+    protected int ID;
+
+    public Item(String Nameee, int ID) {
+        name = Nameee;
+        ID = ID;
     }
-     
-   @Override
+
+    @Override
     public String toString() {
         return new StringBuffer("")
-        .append(this.title)
-        .append(this.playingTime).toString();
+                .append(this.name)
+                .append(this.ID).toString();
     }
 
-    public String getTitle() {
-        return title;
+    public String getName() {
+        return name;
     }
 
-    public int getPlayingTime() {
-        return playingTime;
+    public int getID() {
+        return ID;
     }
-    public int compareTo(Object o){
-       Item i = (Item)o;
-       if(this.playingTime>i.playingTime)
-         return 1;
-       else if(this.playingTime<i.playingTime)
-         return -1;
-       else
-         return this.title.compareTo(i.title);
-   }
 
-    
+    public int compareTo(Object o) {
+        Item i = (Item) o;
+        if (this.ID > i.ID) {
+            return 1;
+        } else if (this.ID < i.ID) {
+            return -1;
+        } else {
+            return this.name.compareTo(i.name);
+        }
+    }
 
     @Override
     public boolean equals(Object obj) {
@@ -60,13 +48,13 @@ public class Item implements Serializable,Comparable {
             return false;
         }
         final Item other = (Item) obj;
-        if (!Objects.equals(this.title, other.title)) {
+        if (!Objects.equals(this.name, other.name)) {
             return false;
         }
-        if (this.playingTime != other.playingTime) {
+        if (this.ID != other.ID) {
             return false;
         }
         return true;
     }
-   
+
 }
