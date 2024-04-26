@@ -8,9 +8,9 @@ public class Item implements Serializable, Comparable {
     protected String name;
     protected int ID;
 
-    public Item(String Nameee, int ID) {
+    public Item(String Nameee, int IDe) {
         name = Nameee;
-        ID = ID;
+        this.ID = IDe;
     }
 
     @Override

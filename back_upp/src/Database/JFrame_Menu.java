@@ -38,7 +38,7 @@ public class JFrame_Menu extends javax.swing.JFrame {
 
         jMenu6.setText("Edit");
 
-        jMenuItem3.setText("STUDENT Edit Form");
+        jMenuItem3.setText("student Edit Form");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem3ActionPerformed(evt);
