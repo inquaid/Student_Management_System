@@ -42,6 +42,7 @@ public class JFrame_Edit_List extends javax.swing.JFrame {
         jTextField_Address = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jTextField_cgpa = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -132,6 +133,13 @@ public class JFrame_Edit_List extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Clear");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -162,7 +170,9 @@ public class JFrame_Edit_List extends javax.swing.JFrame {
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                     .addComponent(jButton_Delete)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jButton_Sort, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jButton_Sort, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(jButton1)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel1)
@@ -175,7 +185,7 @@ public class JFrame_Edit_List extends javax.swing.JFrame {
                                     .addComponent(jTextField_id)
                                     .addComponent(jTextField_Address)
                                     .addComponent(jTextField_cgpa))))))
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -211,7 +221,8 @@ public class JFrame_Edit_List extends javax.swing.JFrame {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jButton_Delete)
                         .addComponent(jButton_Sort)
-                        .addComponent(jButton_Update)))
+                        .addComponent(jButton_Update)
+                        .addComponent(jButton1)))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
@@ -260,10 +271,10 @@ public class JFrame_Edit_List extends javax.swing.JFrame {
         String Address = this.jTextField_Address.getText().trim();
         String cgpa = this.jTextField_cgpa.getText().trim();
         try {
-            int time = Integer.parseInt(id);
+            int idd = Integer.parseInt(id);
 
             double cgpa_cnt = Double.parseDouble(cgpa);
-            return new Student(Name, Address, time, cgpa_cnt);
+            return new Student(Name, Address, idd, cgpa_cnt);
 
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "integer ?");
@@ -305,18 +316,21 @@ public class JFrame_Edit_List extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton_DeleteActionPerformed
 
     private void jButton_UpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_UpdateActionPerformed
-        Student newCD = create_Student();
-        if (newCD == null) {
+        Student newStudent = create_Student();
+        if (newStudent == null) {
             JOptionPane.showMessageDialog(null, "Student is not properly created");
         }
-        if (sList.Contains(newCD) && position != sList.getIndex(newCD)) {
+        if (this.sList.Contains(newStudent) && position != this.sList.getIndex(newStudent)) {
             JOptionPane.showMessageDialog(null, "Student already exists");
         }
-        if (!(newCD == null) && (!sList.Contains(newCD)) && position == sList.getIndex(newCD)) {
-            sList.updateSTUDENT(position, newCD);
-        }
+//        if (newStudent != null && (!this.sList.Contains(newStudent)) && this.position == this.sList.getIndex(newStudent)) {
+        this.sList.updateSTUDENT(this.position, newStudent);
+//        JOptionPane.showMessageDialog(null, "Student updated");
+
+//            this.serializeSTUDENT_List();
+//        }
         if (!sList.isEmpty()) {
-            serializeSTUDENT_List();
+            this.serializeSTUDENT_List();
 
         }
     }//GEN-LAST:event_jButton_UpdateActionPerformed
@@ -395,6 +409,15 @@ public class JFrame_Edit_List extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField_idActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        this.jTextField_Name.setText("");
+        this.jTextField_id.setText("");
+        this.jTextField_Address.setText("");
+        this.jTextField_cgpa.setText("");
+        this.jTextField_Search.setText("");
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -431,6 +454,7 @@ public class JFrame_Edit_List extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton_Add;
     private javax.swing.JButton jButton_Delete;
     private javax.swing.JButton jButton_First;
