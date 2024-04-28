@@ -285,8 +285,8 @@ public class JFrame_Edit_List extends javax.swing.JFrame {
     private void populate_TextBoxes(Student item, int pos) {
         this.jTextField_Name.setText(item.getName());
         this.jTextField_id.setText(Integer.toString(item.getID()));
-        this.jTextField_Address.setText(item.getArtist());
-        this.jTextField_cgpa.setText(Double.toString(item.getNumberOfTracks()));
+        this.jTextField_Address.setText(item.getAddress());
+        this.jTextField_cgpa.setText(Double.toString(item.getCgpa()));
         this.jTextField_Search.setText(pos + "/" + numStudents);
     }
 

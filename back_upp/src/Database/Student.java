@@ -5,21 +5,21 @@ import java.util.Objects;
 
 public class Student extends Item implements Serializable, Comparable {
 
-    private String artist;
-    private Double numberOfTracks;
+    private String address;
+    private Double cgpa;
 
-    public Student(String theTitle, String theArtist, int cgpa_cnt, double tracks) {
-        super(theTitle, cgpa_cnt);
-        artist = theArtist;
-        numberOfTracks = tracks;
+    public Student(String Name, String address, int cgpa_cnt, double tracks) {
+        super(Name, cgpa_cnt);
+        this.address = address;
+        cgpa = tracks;
     }
 
-    public void setArtist(String artist) {
-        this.artist = artist;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
-    public void setNumberOfTracks(Double numberOfTracks) {
-        this.numberOfTracks = numberOfTracks;
+    public void setCgpa(Double cgpa) {
+        this.cgpa = cgpa;
     }
 
     @Override
@@ -31,7 +31,7 @@ public class Student extends Item implements Serializable, Comparable {
             return false;
         }
         final Student other = (Student) obj;
-        if (!Objects.equals(this.artist, other.artist)) {
+        if (!Objects.equals(this.address, other.address)) {
             return false;
         }
         if (!this.name.equals(other.name)) {
@@ -40,12 +40,12 @@ public class Student extends Item implements Serializable, Comparable {
         return true;
     }
 
-    public String getArtist() {
-        return artist;
+    public String getAddress() {
+        return address;
     }
 
-    public Double getNumberOfTracks() {
-        return numberOfTracks;
+    public Double getCgpa() {
+        return cgpa;
     }
 
     @Override
@@ -53,7 +53,7 @@ public class Student extends Item implements Serializable, Comparable {
         return new StringBuffer("")
                 .append(this.name)
                 .append(this.ID)
-                .append(this.artist)
-                .append(this.numberOfTracks).toString();
+                .append(this.address)
+                .append(this.cgpa).toString();
     }
 }
