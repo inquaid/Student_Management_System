@@ -20,7 +20,7 @@ public class main_f extends javax.swing.JFrame {
      * Creates new form main_f
      */
     private static final String username = "root";
-    private static final String password = "aZm123@#12";
+    private static final String password = "dsfasdfsdf";
     private static final String dataConn = "jdbc:mysql://localhost:3306/student_database";
 
     Connection sqlConn = null;
